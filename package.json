@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "gpio": "^0.2.10",
-    "kafka-node": "^4.0.2"
+    "kafka-node": "^4.1.1",
+    "rpi-gpio": "^2.1.3"
   }
 }

@@ -13,18 +13,18 @@ producer.on('ready', function () {
 
 gpio.on('change', function (channel, value) {
     if (channel == 37 && value == false) {
-        producer.send({
-            topic: 'score',
-            messages: 'red'
-        });
-        console.log('score red');
+      producer.send([{
+          topic: 'score',
+          messages: ['red'],
+	  timestamp: Date.now()
+       }],() => console.log('score red sent'));
     }
     if (channel == 13 && value == false) {
-        producer.send({
+        producer.send([{
             topic: 'score',
-            messages: 'green'
-        });
-        console.log('score green');
+            messages: ['green'],
+	    timestamp: Date.now();
+        }],() => console.log('score green sent'));
     }
 });
 gpio.setup(37, gpio.DIR_IN, gpio.EDGE_FALLING);
