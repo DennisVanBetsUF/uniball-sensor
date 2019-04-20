@@ -23,7 +23,7 @@ gpio.on('change', function (channel, value) {
         producer.send([{
             topic: 'score',
             messages: ['green'],
-	    timestamp: Date.now();
+	    timestamp: Date.now()
         }],() => console.log('score green sent'));
     }
 });
