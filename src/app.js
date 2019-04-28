@@ -12,19 +12,19 @@ producer.on('ready', function () {
 });
 
 gpio.on('change', function (channel, value) {
-    if (channel == 37 && value == false) {
+    if (channel == 13 && value == false) {
       producer.send([{
           topic: 'score',
-          messages: ['red'],
-	  timestamp: Date.now()
+          messages: [1], //red
+          timestamp: Date.now()
        }],() => console.log('score red sent'));
     }
-    if (channel == 13 && value == false) {
+    if (channel == 37 && value == false) {
         producer.send([{
             topic: 'score',
-            messages: ['green'],
-	    timestamp: Date.now()
-        }],() => console.log('score green sent'));
+            messages: [2], //blue
+	        timestamp: Date.now()
+        }],() => console.log('score blue sent'));
     }
 });
 gpio.setup(37, gpio.DIR_IN, gpio.EDGE_FALLING);
