@@ -15,14 +15,14 @@ gpio.on('change', function (channel, value) {
     if (channel == 13 && value == false) {
       producer.send([{
           topic: 'score',
-          messages: [1], //red
+          messages: [2], //red
           timestamp: Date.now()
        }],(error) => console.log('score red sent', error));
     }
     if (channel == 37 && value == false) {
         producer.send([{
             topic: 'score',
-            messages: [2], //blue
+            messages: [1], //blue
 	        timestamp: Date.now()
         }],(error) => console.log('score blue sent', error));
     }
