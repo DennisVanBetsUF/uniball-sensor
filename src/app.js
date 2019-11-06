@@ -1,7 +1,7 @@
 const kafka = require('kafka-node');
 var gpio = require('rpi-gpio');
 
-const client = new kafka.KafkaClient({kafkaHost: '192.168.0.144:9092'});
+const client = new kafka.KafkaClient({kafkaHost: '192.168.1.153:9092'});
 
 var Producer = kafka.Producer,
     producer = new Producer(client);
