@@ -1,7 +1,7 @@
 const kafka = require('kafka-node');
 var gpio = require('rpi-gpio');
 
-const client = new kafka.KafkaClient({kafkaHost: '192.168.0.144:9092'});
+const client = new kafka.KafkaClient({kafkaHost: '192.168.0.153:9094'});
 
 var Producer = kafka.Producer,
     producer = new Producer(client);
@@ -17,14 +17,14 @@ gpio.on('change', function (channel, value) {
           topic: 'score',
           messages: [1], //red
           timestamp: Date.now()
-       }],() => console.log('score red sent'));
+       }],(error) => console.log('score red sent', error));
     }
     if (channel == 37 && value == false) {
         producer.send([{
             topic: 'score',
             messages: [2], //blue
 	        timestamp: Date.now()
-        }],() => console.log('score blue sent'));
+        }],(error) => console.log('score blue sent', error));
     }
 });
 gpio.setup(37, gpio.DIR_IN, gpio.EDGE_FALLING);
