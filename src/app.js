@@ -1,7 +1,7 @@
 const kafka = require('kafka-node');
 var gpio = require('rpi-gpio');
 
-const client = new kafka.KafkaClient({kafkaHost: 'http://games.unifly.aero:29092'});
+const client = new kafka.KafkaClient({kafkaHost: '192.168.0.144:29092'});
 
 var Producer = kafka.Producer,
     producer = new Producer(client);
